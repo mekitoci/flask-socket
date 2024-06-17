@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_socketio import SocketIO, send, emit
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+socketio = SocketIO(app,ping_timeout=5,ping_interval=10)
 
 
 @app.route("/")
@@ -27,4 +27,4 @@ def handle_message(message):
 
 
 if __name__ == "__main__":
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True,pingInterval = 10000, pingTimeout= 5000)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
