@@ -4,8 +4,8 @@ services:
     build: .
     volumes:
       - "./app:/app"
-    ports:
-      - "5000:5000"
+    expose:
+      - "5000"
 
   nginx:
     image: nginx:1.27
